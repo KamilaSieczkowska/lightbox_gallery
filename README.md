@@ -1,4 +1,4 @@
 # lightbox_gallery
-Pure js lightbox (no libraries) - with beautiful pictures
+ES6, jQuery, CSS - no libraries
 
-Vanilla JS, CSS
+Demo: https://kamilasieczkowska.github.io/lightbox_gallery/ 
