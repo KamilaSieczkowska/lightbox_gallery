@@ -11,8 +11,16 @@ html, body {
 }
 
 .container {
-    max-width: 960px;
+    max-width: 260px;
     margin: 0 auto;
+
+    @media (min-width: 760px) {
+        max-width: 630px;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 900px;
+    }
 }
 
 
@@ -169,6 +177,7 @@ h3 {
         
             img {
                 max-height: 80vh;
+                max-width: 100%;
             }
 
 
