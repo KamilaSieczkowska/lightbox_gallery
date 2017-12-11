@@ -1,4 +1,4 @@
 # lightbox_gallery
 ES6, jQuery, CSS - no libraries
 
-Demo:
+Demo: https://kamilasieczkowska.github.io/lightbox_gallery/ 
