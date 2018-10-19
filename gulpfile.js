@@ -2,11 +2,6 @@ const gulp            = require('gulp');
 const browserSync     = require('browser-sync').create();
 const sass            = require('gulp-sass'); //sass
 const watch           = require('gulp-watch'); //watch
-const sourcemaps      = require('gulp-sourcemaps'); //sourcemapy
-const plumber         = require('gulp-plumber'); //zapobiera przerywaniu taskow
-const concat          = require('gulp-concat'); //laczenie plikow js
-const uglify          = require('gulp-uglify'); //minimalizacja js
-const rename          = require('gulp-rename'); //zmiana nazwy wynikowych plikow
 const webpack         = require('webpack');
 const gutil           = require('gulp-util');
 
@@ -19,7 +14,7 @@ const handleError = function(err) {
 
 gulp.task('browseSync', function() {
     browserSync.init({
-        server: "./dist",
+        server: "dist",
         notify: false,
         host: '192.168.0.24', //IPv4 Address Wirless LAN adapter WiFi from ipconfig
         //port: 3000,
@@ -30,19 +25,10 @@ gulp.task('browseSync', function() {
 
 gulp.task('sass', function() {
     return gulp.src('src/scss/style.scss')
-        .pipe(plumber({ //przeciwdziala bledom w pipe ktore np przerywaja watch
-            errorHandler: handleError
-        }))
-        .pipe(sourcemaps.init()) //inicjalizacja sourcemap przed zabawa na plikach
         .pipe(sass({
-            outputStyle: 'compressed' //nested, expanded, compact, compressed
+            outputStyle: 'compressed' 
         }))
-        .pipe(rename({ //zamieniam wynikowy plik na style.min.css
-            suffix: '.min',
-            basename: 'style'
-        }))
-        .pipe(sourcemaps.write('.')) //po modyfikacjach na plikach zapisujemy w pamieci sourcemap
-        .pipe(gulp.dest("dist/css")) //i calosc zapisujemy w dest
+        .pipe(gulp.dest("dist/css"))
         .pipe(browserSync.stream({match: '**/*.css'}));
 });
 

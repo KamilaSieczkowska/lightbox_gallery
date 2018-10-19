@@ -1,13 +1,10 @@
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-
 module.exports = {
     entry: './src/js/app.js',
     output: {
         path: `${__dirname}/dist/js`,
         filename: 'script.min.js'
     },
-    watch: false, //mozna pominac
-    devtool: "source-map",
+    watch: false,
     module: {
         loaders: [
             {
@@ -22,10 +19,5 @@ module.exports = {
 
             }
         ],
-    },
-    plugins: [
-        new UglifyJSPlugin({
-            sourceMap: true
-        })
-    ]
+    }
 }
